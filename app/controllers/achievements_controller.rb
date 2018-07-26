@@ -10,6 +10,10 @@ class AchievementsController < ApplicationController
 			render :new
 		end 
 	end
+	def show
+		@achievement = Achievement.find(params[:id])
+		@description = @achievement.description
+	end
 	private 
 	def achievement_params
 		params.require(:achievement).permit(:title, :description, :privacy, :cover_image, :featured)
